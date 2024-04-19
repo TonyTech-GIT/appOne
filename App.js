@@ -1,20 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View, useColorScheme } from 'react-native';
+
+import { Header, Hero, Footer } from './sections'
 
 export default function App() {
+  const colorScheme = useColorScheme();
+  const defaultColor = colorScheme === 'dark' ? 'dark' : 'light';
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={[styles.container, { defaultColor }]}>
+      <Header />
+      <Hero />
+      <Footer />
+
+      <StatusBar style="auto" animated={true} />
+
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // flex: 1,
+    // backgroundColor: '#fff',
+    paddingTop: 40,
+    paddingHorizontal: 16
+
   },
 });
