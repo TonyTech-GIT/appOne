@@ -1,7 +1,7 @@
 import { Image, SafeAreaView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-import appLogo from '../assets/images/web-dev-logo-removebg-preview.png';
+import { appLogo } from '../assets/images';
 import { menuBtn } from '../assets/icons'
 
 export default function Header() {
@@ -12,7 +12,6 @@ export default function Header() {
                 style={styles.imageContainer}
             />
 
-            {/* <Text>Hello World</Text> */}
 
             <TouchableOpacity>
                 <Image
@@ -33,9 +32,8 @@ const styles = StyleSheet.create({
 
     },
     imageContainer: {
-        // flex: 1,
-        width: 80,
-        height: 80
+        width: 70,
+        height: 70
     },
     btnStyles: {
         width: 30,
