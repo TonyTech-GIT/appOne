@@ -1,9 +1,13 @@
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Image, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 
 import { appLogo } from '../assets/images'
 
 export default function Hero() {
+
+    const websiteURL = (webLink) => {
+        Linking.openURL(webLink)
+    }
     return (
         <View style={styles.heroContainer}>
             <ScrollView
@@ -44,6 +48,15 @@ export default function Hero() {
                 style={styles.heroImage}
             />
 
+            <TouchableOpacity 
+                onPress={() => websiteURL('https://www.google.com')} 
+                style={styles.btnStyles}
+            >
+                <Text style={styles.btnText}>
+                    Get Started
+                </Text>
+            </TouchableOpacity>
+
         </View>
     )
 }
@@ -82,5 +95,18 @@ const styles = StyleSheet.create({
     heroImage: {
         width: 400,
         height: 400
+    },
+    btnStyles: {
+        backgroundColor: '#53E0BC',
+        paddingVertical: 18,
+        paddingHorizontal: 20,
+        borderRadius: 14,
+        elevation: 5,
+        shadowRadius: 14,
+    },
+    btnText: {
+        color: '#fff',
+        fontSize: 18,
+        textAlign: 'center'
     }
 })
